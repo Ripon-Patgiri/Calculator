@@ -1,41 +1,97 @@
-
-let num1 = parseInt(prompt('Num 1: '));
-let num2 = parseInt(prompt('Num 2: '));
-let operator = prompt('Operator: ');
+let FLAG = 1;
+let OPERATOR_DISPLAY = 0;
+let RESULT = '';
+let number1 = '';
+let number2 = '';
+let operator = '';
 
 function add(num1,num2) {
-    const sum = num1 + num2;
-    alert(sum);
+    sum = num1 + num2;
+    return sum;
 }
 
 function subtract(num1,num2) {
-    const diff = num1 - num2;
-    alert(diff);
+    diff = num1 - num2;
+    return diff;
 }
 
 function multiply(num1,num2) {
-    const mult = num1 * num2;
-    alert(mult);
+    mult = num1 * num2;
+    return mult;
 }
 
 function divide(num1,num2) {
-    const div = num1 / num2;
-    alert(div);
+    div = num1 / num2;
+    return div;
+}
+
+
+const result = document.getElementById('show-result');
+const numBtn = document.querySelectorAll('.numBtn');
+const operateBtn = document.querySelectorAll('.operateBtn');
+const clearBtn = document.getElementById('clearBtn');
+const equalBtn = document.getElementById('equalBtn');
+
+result.innerHTML = '';
+
+clearBtn.onclick = () => clearDisplay();
+equalBtn.onclick = (e) => updateDisplay(e.target.value)
+for (let i = 0 ; i < numBtn.length ; i++) {
+    numBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
+}
+for (let i = 0 ; i < operateBtn.length ; i++) {
+    operateBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
+}
+
+
+function updateDisplay(value) {
+    if (OPERATOR_DISPLAY === 0 && (value === '+' || value === '-' || value === '*' || value === '/')) {
+        operator = value;
+        console.log(operator);
+        OPERATOR_DISPLAY = 1;
+        FLAG = 2;
+        result.innerHTML += ` ${operator} `;
+    }
+    else if (FLAG === 1 && value != '=') {
+        let num1 = value;
+        number1 += value;
+        number1 = parseInt(number1);
+        result.innerHTML +=`${num1}`;
+    }
+    else if (FLAG === 2 && value != '=') {
+        let num2 = value;
+        number2 += value;
+        number2 = parseInt(number2);
+        result.innerHTML += `${num2}`;
+    }
+    else if (value === '=') {
+        console.log(operator);
+        console.log(number1);
+        console.log(number2);
+        operate(operator, number1, number2);
+    }
+}
+
+function clearDisplay(){
+    result.innerHTML = '';
 }
 
 function operate(operator, num1, num2) {
+    console.log(operator);
     if (operator === '+') {
-        add(num1,num2);
+        let sum = add(num1,num2);
+        result.innerHTML =`${sum}`;
     }
     else if (operator === '-') {
-        subtract(num1,num2);
+        let diff = subtract(num1,num2);
+        result.innerHTML =`${diff}`;
     }
     else if (operator === '*') {
-        multiply(num1,num2);
+        let mult = multiply(num1,num2);
+        result.innerHTML =`${mult}`;
     }
     else if (operator === '/') {
-        divide(num1,num2);
+        let div = divide(num1,num2);
+        result.innerHTML =`${div}`;
     }
 }
-
-operate(operator, num1, num2);
