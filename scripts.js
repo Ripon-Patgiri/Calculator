@@ -7,6 +7,7 @@ let OPERATOR = '';
 let SOLN = 0;
 let PRESSED_CLEAR = 0;
 let PRESSED_EQUAL = 0;
+let FIRST = 0;
 
 function add(num1,num2) {
     console.log(num1);
@@ -79,7 +80,13 @@ function updateDisplay(value) {
         let num1 = value;
         NUMBER1 += value;
         NUMBER1 = parseFloat(NUMBER1);
-        result.innerHTML +=`${num1}`;
+        if (FIRST === 0) {
+            result.innerHTML = `${num1}`;
+            FIRST = 1;
+        }
+        else {
+            result.innerHTML +=`${num1}`;
+        }
     }
     else if (FLAG === 2 && value != '=') {
         let num2 = value;
@@ -94,7 +101,7 @@ function updateDisplay(value) {
 }
 
 function clearDisplay(){
-    result.innerHTML = '';
+    result.innerHTML = '0';
     FLAG = 1;
     OPERATOR_DISPLAY = 0;
     NUMBER1 = '';

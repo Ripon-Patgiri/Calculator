@@ -1,9 +1,131 @@
+:root {
+    --body : rgb(43, 41, 41);
+    --bodytext : wheat;
+}
+
 *,
 *::before,
 *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    /* footer support */
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--body);
+    color: var(--bodytext);
+    line-height: 1.6;
+    /* footer support */
+    margin-bottom: 100px;
+}
+
+button {
+    border: none;
+    padding: 10px;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -40px;
+    padding: 0;
+}
+
+.title {
+    font-size: 40px;
+}
+
+/* MAIN */
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.calcBody {
+    width: 400px;
+    border: 2px solid wheat;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.result {
+    padding: 10px 20px;
+    border: 2px solid wheat;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: rgb(121, 109, 109);
+    text-align: right;
+    font-size: 28px;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.btn {
+    padding: 20px;
+    border: 2px solid wheat;
+    border-radius: 4px;
+    background-color: rgb(49, 28, 28);
+    color: wheat;
+    font-size: 20px;
+}
+
+.btn:hover {
+    background-color: rgb(116, 30, 30);
+}
+
+.btn:active {
+    background-color: rgb(70, 17, 17);
+}
+
+.top {
+    background-color: rgb(32, 27, 56);
+}
+
+.top:hover {
+    background-color: rgb(28, 28, 110);
+}
+
+.top:active {
+    background-color: rgb(3, 3, 75);
+}
+
+.ops {
+    background-color: rgb(95, 17, 17);
+}
+
+.ops:hover {
+    background-color: rgb(131, 22, 22);
+}
+
+.ops:active {
+    background-color: rgb(78, 4, 4);
 }
 
 /* FOOTER */
@@ -21,19 +143,19 @@
 }
 
 .fa-github {
-    color: black;
+    color: var(--bodytext);
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }
 
 .fa-linkedin {
-    color: black;
+    color: var(--bodytext);
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }
 
 .fa-wordpress {
-    color: black;
+    color: var(--bodytext);
     font-size: 24px;
     transition: transform 0.3s ease-in-out;
 }

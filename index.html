@@ -7,7 +7,11 @@
     <title>CALCULATOR</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/b7c220ca6a.js" crossorigin="anonymous"></script>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
 
@@ -16,24 +20,27 @@
     </header>
     
     <main class="main">
-
-        <div class="result" id="show-result"></div>
-        <button class="numBtn" id="oneBtn" value="1">1</button>
-        <button class="numBtn" id="twoBtn" value="2">2</button>
-        <button class="numBtn" id="threeBtn" value="3">3</button>
-        <button class="numBtn" id="fourBtn" value="4">4</button>
-        <button class="numBtn" id="fiveBtn" value="5">5</button>
-        <button class="numBtn" id="sixBtn" value="6">6</button>
-        <button class="numBtn" id="sevenBtn" value="7">7</button>
-        <button class="numBtn" id="eightBtn" value="8">8</button>
-        <button class="numBtn" id="nineBtn" value="9">9</button>
-        <button class="numBtn" id="zeroBtn" value="0">0</button>
-        <button class="operateBtn" id="addBtn" value="+">+</button>
-        <button class="operateBtn" id="subBtn" value="-">-</button>
-        <button class="operateBtn" id="multBtn" value="*">*</button>
-        <button class="operateBtn" id="divBtn" value="/">/</button>
-        <button class="btn" id="equalBtn" value="=">=</button>
-        <button class="btn" id="clearBtn">clear</button>
+        <div class="calcBody">
+            <div class="result" id="show-result">0</div>
+            <div class="buttons-grid">
+                <button class="btn span-2 top" id="clearBtn">clear</button>
+                <button class="btn span-2 top" id="equalBtn" value="=">=</button>
+                <button class="numBtn btn" id="sevenBtn" value="7">7</button>
+                <button class="numBtn btn" id="eightBtn" value="8">8</button>
+                <button class="numBtn btn" id="nineBtn" value="9">9</button>
+                <button class="operateBtn btn ops" id="divBtn" value="/">/</button>
+                <button class="numBtn btn" id="fourBtn" value="4">4</button>
+                <button class="numBtn btn" id="fiveBtn" value="5">5</button>
+                <button class="numBtn btn" id="sixBtn" value="6">6</button>
+                <button class="operateBtn btn ops" id="multBtn" value="*">*</button>
+                <button class="numBtn btn" id="oneBtn" value="1">1</button>
+                <button class="numBtn btn" id="twoBtn" value="2">2</button>
+                <button class="numBtn btn" id="threeBtn" value="3">3</button>
+                <button class="operateBtn btn ops" id="subBtn" value="-">-</button>
+                <button class="numBtn span-2 btn" id="zeroBtn" value="0">0</button>
+                <button class="operateBtn span-2 btn ops" id="addBtn" value="+">+</button>
+            </div>
+        </div>
 
     </main>
 
