@@ -6,19 +6,32 @@ let NUMBER2 = '';
 let OPERATOR = '';
 let SOLN = 0;
 let PRESSED_CLEAR = 0;
-let PRESSED_EQUAL = 0;
 let FIRST = 0;
 
+//Extracting HTML Elements
+const result = document.getElementById('show-result');
+const numBtn = document.querySelectorAll('.numBtn');
+const operateBtn = document.querySelectorAll('.operateBtn');
+const clearBtn = document.getElementById('clearBtn');
+const equalBtn = document.getElementById('equalBtn');
+
+//AddEventListeners
+clearBtn.onclick = () => clearDisplay();
+equalBtn.onclick = (e) => updateDisplay(e.target.value)
+for (let i = 0 ; i < numBtn.length ; i++) {
+    numBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
+}
+for (let i = 0 ; i < operateBtn.length ; i++) {
+    operateBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
+}
+
+//Add, Sub, Mult, Div Functions
 function add(num1,num2) {
-    console.log(num1);
-    console.log(num2);
     sum = num1 + num2;
     return sum;
 }
 
 function subtract(num1,num2) {
-    console.log(num1);
-    console.log(num2);
     diff = num1 - num2;
     return diff;
 }
@@ -43,24 +56,7 @@ function divide(num1,num2) {
     return div;
 }
 
-
-const result = document.getElementById('show-result');
-const numBtn = document.querySelectorAll('.numBtn');
-const operateBtn = document.querySelectorAll('.operateBtn');
-const clearBtn = document.getElementById('clearBtn');
-const equalBtn = document.getElementById('equalBtn');
-
-
-clearBtn.onclick = () => clearDisplay();
-equalBtn.onclick = (e) => updateDisplay(e.target.value)
-for (let i = 0 ; i < numBtn.length ; i++) {
-    numBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
-}
-for (let i = 0 ; i < operateBtn.length ; i++) {
-    operateBtn[i].addEventListener('click', (e) => updateDisplay(e.target.value));
-}
-
-
+// to listen to clicks and update display accordingly
 function updateDisplay(value) {
     if (OPERATOR_DISPLAY === 0 && (value === '+' || value === '-' || value === '*' || value === '/')) {
         OPERATOR = value;
@@ -95,11 +91,11 @@ function updateDisplay(value) {
         result.innerHTML += `${num2}`;
     }
     else if (value === '=') {
-        PRESSED_EQUAL = 1;
         operate(OPERATOR, NUMBER1, NUMBER2);
     }
 }
 
+//Clears the display and resets data
 function clearDisplay(){
     result.innerHTML = '0';
     FLAG = 1;
@@ -107,8 +103,10 @@ function clearDisplay(){
     NUMBER1 = '';
     NUMBER2 = '';
     PRESSED_CLEAR = 1;
+    FIRST = 0;
 }
 
+//To operate and store result
 function operate(operator, num1, num2) {
     if (operator === '+') {
         SOLN = add(num1,num2);
