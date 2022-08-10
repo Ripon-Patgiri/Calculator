@@ -4,6 +4,7 @@ let RESULT = '';
 let number1 = '';
 let number2 = '';
 let operator = '';
+let soln = 0;
 
 function add(num1,num2) {
     sum = num1 + num2;
@@ -74,24 +75,28 @@ function updateDisplay(value) {
 
 function clearDisplay(){
     result.innerHTML = '';
+    FLAG = 1;
+    OPERATOR_DISPLAY = 0;
+    number1 = '';
+    number2 = '';
 }
 
 function operate(operator, num1, num2) {
     console.log(operator);
     if (operator === '+') {
-        let sum = add(num1,num2);
-        result.innerHTML =`${sum}`;
+        soln = add(num1,num2);
     }
     else if (operator === '-') {
-        let diff = subtract(num1,num2);
-        result.innerHTML =`${diff}`;
+        soln = subtract(num1,num2);
     }
     else if (operator === '*') {
-        let mult = multiply(num1,num2);
-        result.innerHTML =`${mult}`;
+        soln = multiply(num1,num2);
     }
     else if (operator === '/') {
-        let div = divide(num1,num2);
-        result.innerHTML =`${div}`;
+        soln = divide(num1,num2);
     }
+    number1 = soln;
+    OPERATOR_DISPLAY = 0;
+    number2 = '';
+    result.innerHTML =`${soln}`;
 }
