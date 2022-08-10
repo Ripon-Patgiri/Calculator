@@ -1,0 +1,51 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* FOOTER */
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    padding: 10px;
+}
+
+.fa-github {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-linkedin {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-wordpress {
+    color: black;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg)scale(1.2);
+}
+
+.fa-linkedin:hover {
+    transform: rotate(360deg)scale(1.2);
+}
+
+.fa-wordpress:hover {
+    transform: rotate(360deg)scale(1.2);
+}
