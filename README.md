@@ -1,2 +1,2 @@
 # Calculator
-A Simple Calculator developed using HTML , CSS and Vanilla JavaScript.
+A Simple Calculator Application.  Developed using : HTML, CSS, JavaScript
